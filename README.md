@@ -71,7 +71,7 @@ brew install python@3.9
 
 #### jdtls.py
 
-My edited `jdtls.py` from `.../nvim/mason/packages/jdtls/bin`
+My edited `jdtls.py` from `.../nvim/mason/packages/jdtls/bin`. All original code belongs to the respective owner. This snippet only for helping me remember what config I changed to get jdtls working.
 
 ```py
 ###############################################################################
@@ -86,14 +86,8 @@ My edited `jdtls.py` from `.../nvim/mason/packages/jdtls/bin`
 # Contributors:
 # Marc Schreiber - initial API and implementation
 ###############################################################################
-import argparse
-from hashlib import sha1
-import os
-import platform
-import re
-import subprocess
-from pathlib import Path
-import tempfile
+
+...
 
 def get_java_executable(validate_java_version):
 	java_executable = '/usr/local/opt/openjdk@17/bin/java'
@@ -119,47 +113,11 @@ def get_java_executable(validate_java_version):
 
 	raise Exception("Could not determine Java version")
 
-def find_equinox_launcher(jdtls_base_directory):
-	plugins_dir = jdtls_base_directory / "plugins"
-	launchers = plugins_dir.glob('org.eclipse.equinox.launcher_*.jar')
-	for launcher in launchers:
-		return plugins_dir / launcher
-
-	raise Exception("Cannot find equinox launcher")
-
-def get_shared_config_path(jdtls_base_path):
-	system = platform.system()
-
-	if system in ['Linux', 'FreeBSD']:
-		config_dir = 'config_linux'
-	elif system == 'Darwin':
-		config_dir = 'config_mac'
-	elif system == 'Windows':
-		config_dir = 'config_win'
-	else:
-		raise Exception("Unknown platform {} detected".format(system))
-
-	return jdtls_base_path / config_dir
+...
 
 def main(args):
-	cwd_name = os.path.basename(os.getcwd())
-	jdtls_data_path = os.path.join(tempfile.gettempdir(), "jdtls-" + sha1(cwd_name.encode()).hexdigest())
 
-	parser = argparse.ArgumentParser()
-	parser.add_argument('--validate-java-version', action='store_true', default=True)
-	parser.add_argument('--no-validate-java-version', dest='validate_java_version', action='store_false')
-	parser.add_argument("--jvm-arg",
-			default=[],
-			action="append",
-			help="An additional JVM option (can be used multiple times. Note, use with equal sign. For example: --jvm-arg=-Dlog.level=ALL")
-	parser.add_argument("-data", default=jdtls_data_path)
-
-	known_args, args = parser.parse_known_args(args)
-	java_executable = get_java_executable(known_args.validate_java_version)
-
-	jdtls_base_path = Path(__file__).parent.parent
-	shared_config_path = get_shared_config_path(jdtls_base_path)
-	jar_path = find_equinox_launcher(jdtls_base_path)
+    ...
 
 	system = platform.system()
 	exec_args = ["-Declipse.application=org.eclipse.jdt.ls.core.id1",
