@@ -30,7 +30,7 @@ Mostly these configs are copied from Prime's config: [ThePrimeagen/init.lua](htt
 ## Neovim (duh)
 
 - Check the official website: [Official website](https://neovim.io/)
-- Brew installation [Brew](https://formulae.brew.sh/formula/neovim)
+- Brew installation: [Brew](https://formulae.brew.sh/formula/neovim)
 
 Example in brew:
 ```sh
