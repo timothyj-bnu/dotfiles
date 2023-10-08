@@ -32,7 +32,6 @@ Mostly these configs are copied from Prime's config: [ThePrimeagen/init.lua](htt
 - Check the official website: [Official website](https://neovim.io/)
 - Brew installation: [Brew](https://formulae.brew.sh/formula/neovim)
 
-Example in brew:
 ```sh
 brew install neovim
 ```
@@ -53,7 +52,19 @@ Sync the package
 :PackerSync
 ```
 
-### jdtls
+### Telescope
+
+- Checkout repository: [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
+
+#### ripgrep
+
+ripgrep is required for `live_grep` and `grep_string` in telescope. Checkout repository: [BurntSushi/ripgrep](https://github.com/BurntSushi/ripgrep)
+
+```sh
+brew install ripgrep
+```
+
+### lsp jdtls
 
 For running jdtls, there are some configurations needed to be changed to get it up and running for me. If you have other way to do this correctly please let me know. Yes most of the paths (if not all) are still absolute path, i'm despreate because it's consuming my sprint velocity to set this up please help.
 
