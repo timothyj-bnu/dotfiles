@@ -104,6 +104,8 @@ alias ls="exa -F -s=name --long -S -h --group-directories-first -G"
 alias la="ls -a"
 alias ld="exa -F -s=name --long -S -h -D -G"
 alias weather="curl wttr.in"
+alias vim="nvim"
+
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
